@@ -19,7 +19,7 @@
 
 ![rsi_sh000001](output/rsi_sh000001.png)
 ![rsi_ndx](output/ndx_rsi.png)
-![rsi_dji](output/nikkei225_rsi_plot.png)
+![rsi_nikkei225](output/nikkei225_rsi_plot.png)
 
 ## Change Log
 
