@@ -53,6 +53,7 @@ function renderChart() {
     timeScale: { timeVisible: false, borderColor: '#ddd' },
   })
 
+  const isSingle = props.selected.length === 1
   let colorIdx = 0
 
   for (const key of props.selected) {
@@ -66,19 +67,30 @@ function renderChart() {
     colorIdx++
 
     const firstClose = d[0]!.close
+    const scaleId = isSingle ? 'right' : `scale_${key}`
 
-    // 归一化价格
-    chart.addSeries(LineSeries, {
-      color,
-      lineWidth: 2,
-      priceScaleId: 'right',
-      title: `${idx.name} (%)`,
-    }).setData(
-      d.map((q) => ({
-        time: q.date,
-        value: ((q.close - firstClose) / firstClose) * 100,
-      }))
-    )
+    if (isSingle) {
+      // 单指数：显示真实数值
+      chart.addSeries(LineSeries, {
+        color,
+        lineWidth: 2,
+        priceScaleId: 'right',
+        title: idx.name,
+      }).setData(d.map((q) => ({ time: q.date, value: q.close })))
+    } else {
+      // 多指数：归一化百分比
+      chart.addSeries(LineSeries, {
+        color,
+        lineWidth: 2,
+        priceScaleId: 'right',
+        title: `${idx.name} (%)`,
+      }).setData(
+        d.map((q) => ({
+          time: q.date,
+          value: ((q.close - firstClose) / firstClose) * 100,
+        }))
+      )
+    }
 
     // RSI 柱状图（按值着色）
     const closes = d.map((q) => q.close)
