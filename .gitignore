@@ -1,13 +1,29 @@
-# Python-generated files
-__pycache__/
-*.py[oc]
-build/
-dist/
-wheels/
-*.egg-info
+# Dependencies
+node_modules
 
-# Virtual environments
-.venv
+# Build output
+dist
 
+# Logs
+*.log
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local env files
+*.local
+
+# TypeScript
+*.tsbuildinfo
+
+# Claude
 .claude
 CLAUDE.md
