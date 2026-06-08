@@ -17,10 +17,7 @@
 
 ## 数据展示
 
-![rsi_sh000001](output/rsi_sh000001.png)
-![hsi_rsi_plot](output/hsi_rsi_plot.png)
-![rsi_ndx](output/ndx_rsi.png)
-![rsi_nikkei225](output/nikkei225_rsi_plot.png)
+Github Pages 开发中
 
 ## Change Log
 
