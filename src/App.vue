@@ -30,25 +30,30 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-base-200">
-    <div class="navbar bg-base-100 shadow-sm">
-      <div class="flex-1">
-        <span class="text-xl font-bold px-4">全球股指 RSI 分析</span>
-      </div>
-      <div class="flex-none">
-        <span class="text-sm opacity-60 px-4">中线交易参考</span>
-      </div>
-    </div>
+  <el-container class="min-h-screen">
+    <el-header class="flex items-center justify-between shadow-sm">
+      <span class="text-xl font-bold">全球股指 RSI 分析</span>
+      <span class="text-sm text-gray-400">中线交易参考</span>
+    </el-header>
 
-    <div class="container mx-auto p-4 grid grid-cols-1 xl:grid-cols-2 gap-4">
-      <IndexCard
-        v-for="idx in INDICES"
-        :key="idx.key"
-        :name="idx.name"
-        :data="state[idx.key]!.data"
-        :loading="state[idx.key]!.loading"
-        :error="state[idx.key]!.error"
-      />
-    </div>
-  </div>
+    <el-main>
+      <el-row :gutter="16">
+        <el-col v-for="idx in INDICES" :key="idx.key" :xs="24" :xl="12" class="mb-4">
+          <IndexCard
+            :name="idx.name"
+            :data="state[idx.key]!.data"
+            :loading="state[idx.key]!.loading"
+            :error="state[idx.key]!.error"
+          />
+        </el-col>
+      </el-row>
+    </el-main>
+  </el-container>
 </template>
+
+<style scoped>
+.el-header {
+  background: var(--el-bg-color);
+  border-bottom: 1px solid var(--el-border-color-lighter);
+}
+</style>

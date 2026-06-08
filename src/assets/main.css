@@ -1,2 +1,11 @@
 @import "tailwindcss";
-@plugin "daisyui";
+
+/* Element Plus 暗色主题 */
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
