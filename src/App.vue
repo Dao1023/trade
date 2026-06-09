@@ -15,6 +15,7 @@ const state = reactive<Record<string, IndexState>>(
 
 const selected = ref<string[]>(INDICES.map((idx) => idx.key))
 const interval = ref<KlineInterval>('daily')
+const indicator = ref<'rsi' | 'macd'>('rsi')
 const rsiWindow = ref(14)
 
 async function fetchData(idxKey: string, intv: KlineInterval) {
@@ -80,7 +81,12 @@ async function setInterval(intv: KlineInterval) {
           <el-radio-button value="monthly">月K</el-radio-button>
         </el-radio-group>
 
-        <el-select v-model="rsiWindow" style="width: 110px">
+        <el-radio-group v-model="indicator">
+          <el-radio-button value="rsi">RSI</el-radio-button>
+          <el-radio-button value="macd">MACD</el-radio-button>
+        </el-radio-group>
+
+        <el-select v-if="indicator === 'rsi'" v-model="rsiWindow" style="width: 110px">
           <el-option :value="14" label="RSI 14" />
           <el-option :value="30" label="RSI 30" />
           <el-option :value="60" label="RSI 60" />
@@ -92,6 +98,7 @@ async function setInterval(intv: KlineInterval) {
         :indices="INDICES"
         :selected="selected"
         :state="state"
+        :indicator="indicator"
         :rsi-window="rsiWindow"
       />
 
