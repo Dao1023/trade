@@ -1,6 +1,6 @@
-本项目基于 akshare，用于了解全球主要股指的情况
+本项目用于了解全球主要股指的情况
 
-每隔几周到几个月会更新一次，后续可能会做个网页版，用来自动同步数据，每天自动更新
+网页版：[https://dao1023.github.io/trade/](https://dao1023.github.io/trade/)
 
 ## 项目介绍
 
@@ -17,7 +17,7 @@
 
 ## 数据展示
 
-Github Pages 开发中
+[在线访问](https://dao1023.github.io/trade/)（基于 Vue + Vite + Element Plus + Lightweight Charts）
 
 ## Change Log
 
